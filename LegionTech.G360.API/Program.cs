@@ -41,7 +41,7 @@ if (app.Environment.IsDevelopment())
     }
   }
 }
-
+app.UseCors(c => { c.AllowAnyOrigin(); c.AllowAnyHeader(); c.AllowAnyMethod(); });
 app.UseHttpsRedirection();
 
 app.MapControllers();
