@@ -1,0 +1,6 @@
+@LegionTech.G360.API_HostAddress = http://localhost:5057
+
+GET {{LegionTech.G360.API_HostAddress}}/
+Accept: application/json
+
+###
