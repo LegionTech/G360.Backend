@@ -1,8 +1,7 @@
 namespace LegionTech.G360.API.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http.HttpResults;
-
+using LegionTech.G360.API.Models;
 
 [Route("api/todo")]
 [ApiController]
@@ -13,23 +12,16 @@ public class TodoController : ControllerBase
   public TodoController(ITodoService todoService)
   {
     _todoService = todoService;
-
-
   }
 
   [HttpGet]
-  public ActionResult<IEnumerable<Todo>> GetAll()
+  public async Task<ActionResult<IList<ModelTodo>>> GetAll()
   {
-    // var todos = new List<Todo>()
-    // {
-    //   { new Todo { Title = "Big Ass Titties.",}},
-    //   { new Todo { Title = "I'm a dude playing a due disguised as another dude.",}},
-    //   { new Todo { Title = "I'm the winner.",}},
-    // };
+    var todos = await _todoService.GetAll();
 
-    var todos = _todoService.GetAll();
-
-    return Ok(todos);
+    var models = todos.Select(x=> new ModelTodo(x)).ToList();
+    
+    return models;
   }
 
   [HttpGet("{id}")]
@@ -45,7 +37,7 @@ public class TodoController : ControllerBase
     return Ok(todo);
   }
 
-  [HttpPut]
+  [HttpPost]
   public ActionResult Add([FromBody] Todo item)
   {
     _todoService.Create(item);
@@ -61,7 +53,7 @@ public class TodoController : ControllerBase
     return Ok();
   }
 
-  [HttpPost("{id}")]
+  [HttpPut("{id}")]
   public ActionResult Update([FromRoute] int id, [FromBody] Todo item)
   {
     if (id != item.Id)
