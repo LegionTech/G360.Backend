@@ -1,0 +1,13 @@
+{
+  "workbench.editor.enablePreview": false,
+  "markdown.preview.scrollEditorWithPreview": false,
+  "markdown.preview.scrollPreviewWithEditor": false,
+  "editor.tabSize": 2,
+  "dotnet.preferCSharpExtension": true,
+  "testExplorer.addToEditorContextMenu": true,
+  "dotnet.testWindow.enableTestExplorerDiff": true,
+  "testExplorer.codeLens": true,
+  "testExplorer.showOnRun": true,
+  "testExplorer.useNativeTesting": false,
+  "testing.showAllMessages": true
+}

@@ -1,10 +1,11 @@
-namespace LegionTech.G360.BizServices.Interfaces;
+namespace LegionTech.G360.BizLogic.Interfaces;
 
 public interface ITodoService
 {
-  public IEnumerable<Todo> GetAll();
-  public Todo GetById(int id);
-  public void Create(Todo task);
-  public void Update(Todo task);
-  public bool Delete(int id);
+  public Task<IEnumerable<Todo>> GetAll();
+  public Task<Todo> GetById(int id);
+  public Task Create(Todo task);  
+  public Task Update(int id, TodoStatus status, string title);
+  public Task Delete(int id);
+  public Task DisposeDatabase();
 }
