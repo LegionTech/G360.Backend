@@ -9,5 +9,6 @@
   "testExplorer.codeLens": true,
   "testExplorer.showOnRun": true,
   "testExplorer.useNativeTesting": false,
-  "testing.showAllMessages": true
+  "testing.showAllMessages": true,
+  "FSharp.suggestGitignore": false
 }
